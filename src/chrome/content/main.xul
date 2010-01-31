@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="data:text/css,
+
+window {
+    width: 400px; 
+    height: 300px;
+}
+#omg-list:-moz-drag-over{
+    border: 1px solid red;
+    cursor: copy;
+}
+
+
+" type="text/css"?>
+<window 
+  title="OMG!" 
+  id="omg-window"
+  orient="horizontal"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  ondragover="nsDragAndDrop.dragOver(event,omgDragObserver)"
+  ondragdrop="nsDragAndDrop.drop(event,omgDragObserver)"
+>
+
+
+<script src="chrome://global/content/nsDragAndDrop.js"/>
+<script src="chrome://global/content/nsTransferable.js"/>
+<script type="application/x-javascript" src="cssmin.js"/>
+<script type="application/x-javascript" src="fulljsmin1.js"/>
+<script type="application/x-javascript" src="omg.js"/>
+
+<listbox id="omg-list" flex="1">
+  <listhead>
+    <listheader id="name"  label="Filename"/>
+    <listheader id="size"  label="Size, bytes"/>
+    <listheader id="min"   label="Min'd, bytes"/>
+    <listheader id="ratio" label="% of original"/>
+  </listhead>
+  <listcols>
+    <listcol flex="1"/>
+    <listcol flex="1"/>
+    <listcol flex="1"/>
+    <listcol flex="1"/>
+  </listcols>
+</listbox>
+
+
+</window>
